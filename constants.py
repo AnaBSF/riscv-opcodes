@@ -617,6 +617,21 @@ arg_lut['c_rs2'] = (6,2)
 arg_lut['c_sreg1'] = (9,7)
 arg_lut['c_sreg2'] = (4,2)
 
+# Unlimited Vector Extension
+#arglut['vd'] = (11,7) # Same as vector
+#arglut['vs1'] = (19,15) # Same as vector
+#arglut['vs2'] = (24,20) # Same as vector
+#arglut['rs1'] = (19,15) # Same as RV32I
+#arglut['rs2'] = (24,20) # Same as RV32I
+#arglut['rs3'] = (31,27) # Same as RV32I
+#arglut['rd'] = (11,7) # Same as RV32I
+arg_lut['pd'] = (10,7)
+arg_lut['ps1'] = (18,15)
+arg_lut['ps2'] = (22,20)
+arg_lut['ps3'] = (27,25)
+arg_lut['imm12aHi'] = (28,22)
+arg_lut['imm12aLo'] = (11,7)
+
 # dictionary containing the mapping of the argument to the what the fields in
 # the latex table should be
 latex_mapping = {}
