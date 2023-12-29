@@ -130,6 +130,21 @@ latex_mapping['c_uimm9splo'] = 'uimm[4:3$\\vert$8:6]'
 latex_mapping['c_uimm9sphi'] = 'uimm[5]'
 latex_mapping['c_uimm10sp_s'] = 'uimm[5:4$\\vert$9:6]'
 latex_mapping['c_uimm9sp_s'] = 'uimm[5:3$\\vert$8:6]'
+### UVE ###
+latex_mapping['vd'] = 'vd'
+latex_mapping['vs1'] = 'vs1'
+latex_mapping['vs2'] = 'vs2'
+latex_mapping['rs3'] = 'rs3'
+latex_mapping['pd'] = 'pd'
+latex_mapping['ps1'] = 'ps1'
+latex_mapping['ps2'] = 'ps2'
+latex_mapping['ps3'] = 'ps3'
+latex_mapping['imm12aHi'] = 'imm[12$\\vert$10:5]'
+latex_mapping['imm12aLo'] = 'imm[4:1$\\vert$11]'
+latex_mapping['funct4a'] = 'funct4'
+latex_mapping['funct4b'] = 'funct4'
+latex_mapping['funct3b'] = 'funct3'
+
 
 # created a dummy instruction-dictionary like dictionary for all the instruction
 # types so that the same logic can be used to create their tables
@@ -153,6 +168,13 @@ latex_inst_type['U-type'] = {}
 latex_inst_type['U-type']['variable_fields'] = ['opcode', 'rd', 'imm20']
 latex_inst_type['J-type'] = {}
 latex_inst_type['J-type']['variable_fields'] = ['opcode', 'rd', 'jimm20']
+### UVE ###
+latex_inst_type['UA-type'] = {}
+latex_inst_type['UA-type']['variable_fields'] = ['opcode', 'funct3', 'vs1', \
+        'vs2', 'ps3', 'funct4a']
+latex_inst_type['UAR-type'] = {}
+latex_inst_type['UAR-type']['variable_fields'] = ['opcode', 'funct3', 'vs1', \
+        'acc', 'ps3', 'funct4a']
 latex_fixed_fields = []
 latex_fixed_fields.append((31,25))
 latex_fixed_fields.append((24,20))

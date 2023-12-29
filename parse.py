@@ -11,7 +11,8 @@ import yaml
 import sys
 
 pp = pprint.PrettyPrinter(indent=2)
-logging.basicConfig(level=logging.INFO, format='%(levelname)s:: %(message)s')
+#logging.basicConfig(level=logging.INFO, format='%(levelname)s:: %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(levelname)s:: %(message)s')
 
 def process_enc_line(line, ext):
     '''
@@ -475,6 +476,12 @@ def make_latex_table():
     type_list = ['R-type','R4-type','I-type','S-type']
     dataset_list = [(['_zfh', '_d_zfh','_q_zfh'],'RV32Zfh Standard Extension', [], False)]
     dataset_list.append((['64_zfh'],'RV64Zfh Standard Extension (in addition to RV32Zfh)', [], False))
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    ### UVE ###
+    caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
+    type_list = ['UA-type']
+    dataset_list = [(['_uve_arith'],'UVE Arithmetic', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
     ## The following is demo to show that Compressed instructions can also be
