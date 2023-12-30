@@ -137,10 +137,12 @@ latex_mapping['vs2'] = 'vs2'
 latex_mapping['rs3'] = 'rs3'
 latex_mapping['pd'] = 'pd'
 latex_mapping['ps1'] = 'ps1'
+latex_mapping['ps1f'] = 'ps1'
 latex_mapping['ps2'] = 'ps2'
 latex_mapping['ps3'] = 'ps3'
 latex_mapping['rvd'] = 'vd/rd'
 latex_mapping['rvs1'] = 'vs1/rs1'
+latex_mapping['vps1'] = 'vs1/ps1'
 latex_mapping['rvs2'] = 'vs2/rs2'
 latex_mapping['rvs3'] = 'rs3'
 latex_mapping['imm12aHi'] = 'imm[12$\\vert$10:5]'
@@ -180,9 +182,18 @@ latex_inst_type['UA-type']['variable_fields'] = ['opcode', 'rvd', 'funct3', 'vs1
 latex_inst_type['UB-type'] = {}
 latex_inst_type['UB-type']['variable_fields'] = ['opcode', 'imm12aLo', 'funct3', \
         'vs1', 'funct2b', 'imm12aHi', 'funct3b']
-latex_inst_type['UV-type'] = {}
-latex_inst_type['UV-type']['variable_fields'] = ['opcode', 'rvd', 'funct3', \
-        'vs1', 'ps2', 'funct9']
+latex_inst_type['UP-type'] = {}
+latex_inst_type['UP-type']['variable_fields'] = ['opcode', 'pd', 'funct4b', \
+        'vps1', 'rvs2', 'ps3', 'funct4a']
+latex_inst_type['UV1-type'] = {}
+latex_inst_type['UV1-type']['variable_fields'] = ['opcode', 'rvd', 'funct3', \
+        'rvs1', 'rs2', 'funct7']
+latex_inst_type['UV2-type'] = {}
+latex_inst_type['UV2-type']['variable_fields'] = ['opcode', 'rvd', 'funct3', \
+        'rvs1', 'ps2', 'funct9']
+latex_inst_type['US-type'] = {}
+latex_inst_type['US-type']['variable_fields'] = ['opcode', 'vd', 'funct3', \
+        'rs1', 'rs2', 'funct2', 'rs3']
 latex_fixed_fields = []
 latex_fixed_fields.append((31,25))
 latex_fixed_fields.append((24,20))

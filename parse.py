@@ -438,6 +438,7 @@ def make_latex_table():
     # is empty then it indicates that all instructions of the all the extensions
     # in list_of_extensions need to be dumped. If not empty, then only the
     # instructions listed in list_of_instructions will be dumped into latex.
+    '''
     caption = ''
     type_list = ['R-type','I-type','S-type','B-type','U-type','J-type']
     dataset_list = [(['_i','32_i'], 'RV32I Base Instruction Set', [], False)]
@@ -477,16 +478,48 @@ def make_latex_table():
     dataset_list = [(['_zfh', '_d_zfh','_q_zfh'],'RV32Zfh Standard Extension', [], False)]
     dataset_list.append((['64_zfh'],'RV64Zfh Standard Extension (in addition to RV32Zfh)', [], False))
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
+    '''
     ### UVE ###
-    caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
-    type_list = ['UA-type', 'UB-type', 'UV-type']
+    caption = ''
+    type_list = ['UA-type']
     dataset_list = [(['_uve_arith'],'Arithmetic and Logic Operations', [], False)]
-    dataset_list.append((['_uve_branch'],'Loop Control Branching Instructions', [], False))
-    dataset_list.append((['_uve_mem'],'Vector Control and Manipulation Instructions', [], False))
-    dataset_list.append((['_uve_pred'],'Lane Control Predication Instructions', [], False))
-    dataset_list.append((['_uve_stream'],'Stream Configuration Instructions', [], False))
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['UB-type', 'UP-type']
+    dataset_list = [(['_uve_branch'],'Loop Control Branching Instructions', [], False)]
+    dataset_list.append((['_uve_pred'],'Lane Control Predication Instructions', [], False))
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['UV1-type', 'UV2-type']
+    dataset_list = [(['_uve_mem'],'Vector Control and Manipulation Instructions', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['US-type']
+    dataset_list = [(['_uve_stream1'],'Stream Configuration Instructions', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['US-type']
+    dataset_list = [(['_uve_stream2'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['US-type']
+    dataset_list = [(['_uve_stream3'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['US-type']
+    dataset_list = [(['_uve_stream4'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    type_list = ['US-type']
+    dataset_list = [(['_uve_stream5'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+    caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
+    type_list = ['US-type']
+    dataset_list = [(['_uve_stream6'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+
 
     ## The following is demo to show that Compressed instructions can also be
     # dumped in the same manner as above
@@ -729,7 +762,7 @@ def make_ext_latex_table(type_list, dataset, latex_file, ilen, caption):
 \\begin{{table}}[p]
 \\begin{{small}}
 \\begin{{center}}
-    \\begin{{tabular}} {{{column_size}l}}
+    \\resizebox{{\\textwidth}}{{!}}{{\\begin{{tabular}} {{{column_size}l}}
     {" ".join(['&']*ilen)} \\\\
 
             &
@@ -737,7 +770,7 @@ def make_ext_latex_table(type_list, dataset, latex_file, ilen, caption):
 '''
     endtable=f'''
 
-\\end{{tabular}}
+\\end{{tabular}}}}
 \\end{{center}}
 \\end{{small}}
 {caption}
@@ -1023,5 +1056,5 @@ if __name__ == "__main__":
     if '-latex' in sys.argv[1:]:
         make_latex_table()
         logging.info('instr-table.tex generated successfully')
-        make_priv_latex_table()
-        logging.info('priv-instr-table.tex generated successfully')
+        #make_priv_latex_table()
+        #logging.info('priv-instr-table.tex generated successfully')
