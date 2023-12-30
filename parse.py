@@ -480,8 +480,12 @@ def make_latex_table():
 
     ### UVE ###
     caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
-    type_list = ['UA-type']
-    dataset_list = [(['_uve_arith'],'UVE Arithmetic', [], False)]
+    type_list = ['UA-type', 'UB-type', 'UV-type']
+    dataset_list = [(['_uve_arith'],'Arithmetic and Logic Operations', [], False)]
+    dataset_list.append((['_uve_branch'],'Loop Control Branching Instructions', [], False))
+    dataset_list.append((['_uve_mem'],'Vector Control and Manipulation Instructions', [], False))
+    dataset_list.append((['_uve_pred'],'Lane Control Predication Instructions', [], False))
+    dataset_list.append((['_uve_stream'],'Stream Configuration Instructions', [], False))
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
     ## The following is demo to show that Compressed instructions can also be
