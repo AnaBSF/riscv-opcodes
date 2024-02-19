@@ -481,44 +481,83 @@ def make_latex_table():
     '''
     ### UVE ###
     caption = ''
-    type_list = ['UA-type']
-    dataset_list = [(['_uve_arith'],'Arithmetic and Logic Operations', [], False)]
+    '''type_list = ['UA-type']
+    dataset_list = [(['_nuve_arith1'],'Arithmetic and Logic Instructions', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
-    type_list = ['UB-type', 'UP-type']
-    dataset_list = [(['_uve_branch'],'Loop Control Branching Instructions', [], False)]
-    dataset_list.append((['_uve_pred'],'Lane Control Predication Instructions', [], False))
+    
+    type_list = ['UA-type', 'UB-type']
+    dataset_list = [(['_nuve_arith2'],'Arithmetic and Logic Instructions (Continuation)', [], False)]
+    dataset_list.append((['_nuve_branch'],'Loop Control Branching Instructions', [], False))
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
-    type_list = ['UV1-type', 'UV2-type']
-    dataset_list = [(['_uve_mem'],'Vector Control and Manipulation Instructions', [], False)]
+    
+    type_list = ['UP-type', 'UV2-type']
+    dataset_list = [(['_nuve_pred'],'Lane Control Predication Instructions', [], False)]
+    dataset_list.append((['_nuve_ctrl'],'Vector Control Instructions', [], False))
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    
+    type_list = ['UV1-type', 'US-type']
+    dataset_list = [(['_nuve_mem'],'Vector Manipulation Instructions', [], False)]
+    dataset_list.append((['_nuve_stream1'],'Stream Configuration Instructions', [], False))
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream2'],'Stream Configuration Instructions (Continuation)', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
     type_list = ['US-type']
-    dataset_list = [(['_uve_stream1'],'Stream Configuration Instructions', [], False)]
+    dataset_list = [(['_nuve_stream3'],'Stream Configuration Instructions (Continuation)', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
     type_list = ['US-type']
-    dataset_list = [(['_uve_stream2'],'Stream Configuration Instructions (Continuation)', [], False)]
+    dataset_list = [(['_nuve_stream4'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream5'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream6'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream7'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream8'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream9'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream10'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream11'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream12'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream13'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream14'],'Stream Configuration Instructions (Continuation)', [], False)]
+    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+    
+    type_list = ['US-type']
+    dataset_list = [(['_nuve_stream15'],'Stream Configuration Instructions (Continuation)', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
     type_list = ['US-type']
-    dataset_list = [(['_uve_stream3'],'Stream Configuration Instructions (Continuation)', [], False)]
+    dataset_list = [(['_nuve_stream16'],'Stream Configuration Instructions (Continuation)', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
-    type_list = ['US-type']
-    dataset_list = [(['_uve_stream4'],'Stream Configuration Instructions (Continuation)', [], False)]
-    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
-    type_list = ['US-type']
-    dataset_list = [(['_uve_stream5'],'Stream Configuration Instructions (Continuation)', [], False)]
-    make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
+    '''
     caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
     type_list = ['US-type']
-    dataset_list = [(['_uve_stream6'],'Stream Configuration Instructions (Continuation)', [], False)]
+    dataset_list = [(['_nuve_stream17'],'Stream Configuration Instructions (Continuation)', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-
+    
 
 
     ## The following is demo to show that Compressed instructions can also be

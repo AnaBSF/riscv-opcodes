@@ -195,12 +195,106 @@ latex_inst_type['US-type'] = {}
 latex_inst_type['US-type']['variable_fields'] = ['opcode', 'vd', 'funct3', \
         'rs1', 'rs2', 'funct2', 'rs3']
 latex_fixed_fields = []
-latex_fixed_fields.append((31,25))
-latex_fixed_fields.append((24,20))
+#latex_fixed_fields.append((31,25))
+#latex_fixed_fields.append((24,20))
+#latex_fixed_fields.append((19,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SS STA
+#latex_fixed_fields.append((31,31))
+#latex_fixed_fields.append((30,30))
+#latex_fixed_fields.append((29,27))
+#latex_fixed_fields.append((26,25))
+#latex_fixed_fields.append((24,24))
+#latex_fixed_fields.append((23,22))
+#latex_fixed_fields.append((19,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SS APP MOD
+#latex_fixed_fields.append((31,27))
+#latex_fixed_fields.append((26,25))
+#latex_fixed_fields.append((24,22))
+#latex_fixed_fields.append((21,20))
+#latex_fixed_fields.append((19,18))
+#latex_fixed_fields.append((17,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SS APP IND
+latex_fixed_fields.append((31,31))
+latex_fixed_fields.append((30,28))
+latex_fixed_fields.append((27,27))
+latex_fixed_fields.append((26,25))
+latex_fixed_fields.append((24,22))
+latex_fixed_fields.append((21,20))
 latex_fixed_fields.append((19,15))
 latex_fixed_fields.append((14,12))
 latex_fixed_fields.append((11,7))
 latex_fixed_fields.append((6,0))
+
+# UVE SO V 
+#latex_fixed_fields.append((31,27))
+#latex_fixed_fields.append((26,23))
+#latex_fixed_fields.append((22,20))
+#latex_fixed_fields.append((19,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SO CTRL
+#latex_fixed_fields.append((31,27))
+#latex_fixed_fields.append((26,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SO PRED CV
+#latex_fixed_fields.append((31,28))
+#latex_fixed_fields.append((27,25))
+#latex_fixed_fields.append((24,24))
+#latex_fixed_fields.append((23,22))
+#latex_fixed_fields.append((21,20))
+#latex_fixed_fields.append((19,19))
+#latex_fixed_fields.append((18,15))
+#latex_fixed_fields.append((14,11))
+#latex_fixed_fields.append((10,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SO PRED
+#latex_fixed_fields.append((31,28))
+#latex_fixed_fields.append((27,25))
+#latex_fixed_fields.append((24,24))
+#latex_fixed_fields.append((23,15))
+#latex_fixed_fields.append((18,15))
+#latex_fixed_fields.append((14,11))
+#latex_fixed_fields.append((10,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SO PRED COMP
+#latex_fixed_fields.append((31,28))
+#latex_fixed_fields.append((27,25))
+#latex_fixed_fields.append((24,24))
+#latex_fixed_fields.append((23,15))
+#latex_fixed_fields.append((18,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,11))
+#latex_fixed_fields.append((10,7))
+#latex_fixed_fields.append((6,0))
+
+# UVE SO PRED COMP
+#latex_fixed_fields.append((31,29))
+#latex_fixed_fields.append((28,22))
+#latex_fixed_fields.append((21,21))
+#latex_fixed_fields.append((22,22))
+#latex_fixed_fields.append((19,15))
+#latex_fixed_fields.append((14,12))
+#latex_fixed_fields.append((11,7))
+#latex_fixed_fields.append((6,0))
 
 # Pseudo-ops present in the generated encodings.
 # By default pseudo-ops are not listed as they are considered aliases
