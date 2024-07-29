@@ -519,7 +519,7 @@ def make_latex_table():
     dataset_list = [(['_nuve_arith2'],'Arithmetic and Logic Instructions (Continuation)', [], False)]
     dataset_list.append((['_nuve_branch'],'Loop Control Branching Instructions', [], False))
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-    
+    '''
     type_list = ['UP-type', 'UV2-type']
     dataset_list = [(['_nuve_pred'],'Lane Control Predication Instructions', [], False)]
     dataset_list.append((['_nuve_ctrl'],'Vector Control Instructions', [], False))
@@ -529,7 +529,7 @@ def make_latex_table():
     dataset_list = [(['_nuve_mem'],'Vector Manipulation Instructions', [], False)]
     dataset_list.append((['_nuve_stream1'],'Stream Configuration Instructions', [], False))
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
-    '''
+    
     type_list = ['US-type']
     dataset_list = [(['_nuve_stream2'],'Stream Configuration Instructions (Continuation)', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
