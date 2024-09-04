@@ -114,7 +114,8 @@ def process_enc_line(line, ext):
     encoding_args = encoding.copy()
     for a in args:
         if a not in arg_lut:
-            if len(parts := a.split('=')) == 2:
+            parts = a.split('=')  # Assign the result of the split operation to the variable 'parts'
+            if len(parts) == 2:   # Then check if the length of 'parts' is 2
                 existing_arg, new_arg = parts
                 if existing_arg in arg_lut:
                     arg_lut[a] = arg_lut[existing_arg]
