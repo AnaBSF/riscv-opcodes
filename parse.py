@@ -558,7 +558,8 @@ def make_latex_table():
     '''
     ### UVE ###
     caption = ''
-    '''type_list = ['UA-type']
+    '''
+    type_list = ['UA-type']
     dataset_list = [(['_nuve_arith1'],'Arithmetic and Logic Instructions', [], False)]
     make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
     
@@ -870,8 +871,6 @@ def make_ext_latex_table(type_list, dataset, latex_file, ilen, caption):
             content += f'''
 {instr_entries}
 '''
-
-
     header = f'''
 \\newpage
 
