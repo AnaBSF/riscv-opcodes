@@ -437,7 +437,7 @@ def process_standard_instructions(
                     log_and_exit(
                         f'Instruction {name} in extension {ext_name} overlaps with {key} in {item["extension"]}'
                     )
-
+                    
             instr_dict[name] = single_dict
 
 
@@ -609,6 +609,8 @@ def create_inst_dict(
         logging.debug(f"Parsing File: {file_name} for imported instructions")
         lines = read_lines(file_name)
         process_imported_instructions(lines, instr_dict, file_name, opcodes_dir)
+        
+    print (instr_dict)
 
     return instr_dict
 

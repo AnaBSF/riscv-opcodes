@@ -229,7 +229,7 @@ DEBUG::      Processing line: jalr    rd rs1 imm12              14..12=0 6..2=0x
 DEBUG::      Processing line: beq     bimm12hi rs1 rs2 bimm12lo 14..12=0 6..2=0x18 1..0=3
 DEBUG::      Processing line: bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..2=0x18 1..0=3
 ```
-
+ 
 ## How do I find where an instruction is defined?
 
 You can use `grep "^\s*<instr-name>" rv* unratified/rv*` OR run `make` and open

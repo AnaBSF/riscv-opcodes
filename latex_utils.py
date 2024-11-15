@@ -176,31 +176,30 @@ def make_latex_table():
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
         
         ### UVE ###
-        caption = ''
-
-        type_list = ['UA-type']
-        dataset_list = [(['_uve_arith'],'Arithmetic and Logic Instructions', [], False)]
+        caption = ""
+        type_list = ["UA-type"]
+        dataset_list = [(["_uve_arith"],"Arithmetic and Logic Instructions", [], False)]
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
-        type_list = ['UB-type']
-        dataset_list =[(['_uve_branch'],'Loop Control Branching Instructions', [], False)]
+        type_list = ["UB-type"]
+        dataset_list =[(["_uve_branch"],"Loop Control Branching Instructions", [], False)]
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
-        type_list = ['UP-type']
-        dataset_list = [(['_uve_pred'],'Lane Control Predication Instructions', [], False)]
+        type_list = ["UP-type"]
+        dataset_list = [(["_uve_pred"],"Lane Control Predication Instructions", [], False)]
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
-        type_list = ['UV2-type']
-        dataset_list = [(['_uve_ctrl'],'Vector Control Instructions', [], False)]
+        type_list = ["UV2-type"]
+        dataset_list = [(["_uve_ctrl"],"Vector Control Instructions", [], False)]
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
-        type_list = ['UV1-type']
-        dataset_list = [(['_uve_mem'],'Vector Manipulation Instructions', [], False)]
+        type_list = ["UV1-type"]
+        dataset_list = [(["_uve_mem"],"Vector Manipulation Instructions", [], False)]
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
-        caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
-        type_list = ['US-type']
-        dataset_list = [(['_uve_stream'],'Stream Configuration Instructions', [], False)]
+        caption = "\\caption{Unlimited Vector Extension Instruction listing for RISC-V}"
+        type_list = ["US-type"]
+        dataset_list = [(["_uve_stream"],"Stream Configuration Instructions", [], False)]
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
         ## The following is demo to show that Compressed instructions can also be
@@ -370,6 +369,7 @@ def make_ext_latex_table(
         # for all extensions list in ext_list, create a dictionary of
         # instructions associated with those extensions.
         for e in ext_list:
+            print(f"Processing extension: {e}")
             instr_dict.update(create_inst_dict(["rv" + e], include_pseudo))
 
         # if filter_list is not empty then use that as the official set of
@@ -380,6 +380,7 @@ def make_ext_latex_table(
         # above with the instruction-type table.
         instr_entries = ""
         for inst in inst_list:
+            print(f"Processing instruction: {inst}")
             if inst not in instr_dict:
                 logging.error(
                     f"in make_ext_latex_table: Instruction: {inst} not found in instr_dict"

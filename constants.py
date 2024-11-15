@@ -92,12 +92,12 @@ arg_lut['c_mop_t'] = (10,8)
 #arglut['rs2'] = (24,20) # Same as RV32I
 #arglut['rs3'] = (31,27) # Same as RV32I
 #arglut['rd'] = (11,7) # Same as RV32I
-arg_lut['pd'] = (10,7)
-arg_lut['ps1'] = (18,15)
-arg_lut['ps2'] = (22,20)
-arg_lut['ps3'] = (27,25)
-arg_lut['imm12aHi'] = (28,22)
-arg_lut['imm12aLo'] = (11,7)
+#arg_lut['pd'] = (10,7)
+#arg_lut['ps1'] = (18,15)
+#arg_lut['ps2'] = (22,20)
+#arg_lut['ps3'] = (27,25)
+#arg_lut['imm12aHi'] = (28,22)
+#arg_lut['imm12aLo'] = (11,7)
 
 # dictionary containing the mapping of the argument to the what the fields in
 # the latex table should be
@@ -160,26 +160,26 @@ latex_mapping = {
     "c_uimm10sp_s": "uimm[5:4$\\vert$9:6]",
     "c_uimm9sp_s": "uimm[5:3$\\vert$8:6]",
     ### UVE ###
-    "vd" : "vd",
-    "vs1" : "vs1",
-    "vs2" : "vs2",
-    "rs3" : "rs3",
-    "pd" : "pd",
-    "ps1" : "ps1",
-    "ps1f" : "ps1",
-    "ps2" : "ps2",
-    "ps3" : "ps3",
-    "rvd" : "vd/rd",
-    "rvs1" : "vs1/rs1",
-    "vps1" : "vs1/ps1",
-    "rvs2" : "vs2/rs2",
-    "rvs3" : "rs3",
-    "imm12aHi" : "imm[12$\\vert$10:5]",
-    "imm12aLo" : "imm[4:1$\\vert$11]",
-    "funct4a" : "funct4",
-    "funct4b" : "funct4",
-    "funct3b" : "funct3",
-    "funct2b" : "funct2",
+    "vd": "vd",
+    "vs1": "vs1",
+    "vs2": "vs2",
+    "rs3": "rs3",
+    "pd": "pd",
+    "ps1": "ps1",
+    "ps1f": "ps1",
+    "ps2": "ps2",
+    "ps3": "ps3",
+    "rvd": "vd/rd",
+    "rvs1": "vs1/rs1",
+    "vps1": "vs1/ps1",
+    "rvs2": "vs2/rs2",
+    "rvs3": "rs3",
+    "imm12aHi": "imm[12$\\vert$10:5]",
+    "imm12aLo": "imm[4:1$\\vert$11]",
+    "funct4a": "funct4",
+    "funct4b": "funct4",
+    "funct3b": "funct3",
+    "funct2b": "funct2",
 }
 
 # created a dummy instruction-dictionary like dictionary for all the instruction
@@ -208,22 +208,22 @@ latex_inst_type = {
     },
     ### UVE ###
     "UA-type":  {
-        "variable_fields":  ["opcode", "rvd", "funct3", "vs1", "vs2", "ps3", "funct4a"],
+        "variable_fields": ["opcode", "rvd", "funct3", "vs1", "vs2", "ps3", "funct4a"],
     },
-    "UB-type":  {
-        "variable_fields":  ["opcode", "imm12aLo", "funct3", "vs1", "funct2b", "imm12aHi", "funct3b"],
+    "UB-type": {
+        "variable_fields": ["opcode", "imm12aLo", "funct3", "vs1", "funct2b", "imm12aHi", "funct3b"],
     },
-    "UP-type":  {
-        "variable_fields":  ["opcode", "pd", "funct4b", "vps1", "rvs2", "ps3", "funct4a"],
+    "UP-type": {
+        "variable_fields": ["opcode", "pd", "funct4b", "vps1", "rvs2", "ps3", "funct4a"],
     },
-    "UV1-type":  {
-        "variable_fields":  ["opcode", "rvd", "funct3", "rvs1", "rs2", "funct7"],
+    "UV1-type": {
+        "variable_fields": ["opcode", "rvd", "funct3", "rvs1", "rs2", "funct7"],
     },
-    "UV2-type":  {
-        "variable_fields":  ["opcode", "rvd", "funct3", "rvs1", "ps2", "funct9"],
+    "UV2-type": {
+        "variable_fields": ["opcode", "rvd", "funct3", "rvs1", "ps2", "funct9"],
     },
-    "US-type":  {
-        "variable_fields":  ["opcode", "vd", "funct3", "rs1", "rs2", "funct2", "rs3"]
+    "US-type": {
+        "variable_fields": ["opcode", "vd", "funct3", "rs1", "rs2", "funct2", "rs3"]
     }
 }
 latex_fixed_fields = [
