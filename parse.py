@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+<<<<<<< HEAD
 
 from constants import *
 import copy
@@ -1079,15 +1080,60 @@ if __name__ == "__main__":
         if i in extensions:
             extensions.remove(i)
     print(f'Extensions selected : {extensions}')
+=======
+import collections
+import json
+import logging
+import pprint
+import sys
 
-    include_pseudo = False
-    if "-go" in sys.argv[1:]:
-        include_pseudo = True
+from c_utils import make_c
+from chisel_utils import make_chisel
+from constants import emitted_pseudo_ops
+from go_utils import make_go
+from latex_utils import make_latex_table, make_priv_latex_table
+from rust_utils import make_rust
+from shared_utils import add_segmented_vls_insn, create_inst_dict
+from sverilog_utils import make_sverilog
+
+LOG_FORMAT = "%(levelname)s:: %(message)s"
+LOG_LEVEL = logging.INFO
+
+pretty_printer = pprint.PrettyPrinter(indent=2)
+logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
+
+
+def main():
+    print(f"Running with args : {sys.argv}")
+
+    extensions = sys.argv[1:]
+
+    targets = {
+        "-c",
+        "-chisel",
+        "-go",
+        "-latex",
+        "-pseudo",
+        "-rust",
+        "-spinalhdl",
+        "-sverilog",
+    }
+
+    extensions = [ext for ext in extensions if ext not in targets]
+    print(f"Extensions selected : {extensions}")
+>>>>>>> master
+
+    include_pseudo = "-pseudo" in sys.argv[1:]
 
     instr_dict = create_inst_dict(extensions, include_pseudo)
 
+<<<<<<< HEAD
     with open('instr_dict.yaml', 'w') as outfile:
         yaml.dump(add_segmented_vls_insn(instr_dict), outfile, default_flow_style=False)
+=======
+    with open("instr_dict.json", "w", encoding="utf-8") as outfile:
+        json.dump(add_segmented_vls_insn(instr_dict), outfile, indent=2)
+>>>>>>> master
     instr_dict = collections.OrderedDict(sorted(instr_dict.items()))
 
     if '-c' in sys.argv[1:]:
@@ -1119,6 +1165,16 @@ if __name__ == "__main__":
 
     if '-latex' in sys.argv[1:]:
         make_latex_table()
+<<<<<<< HEAD
         logging.info('instr-table.tex generated successfully')
         #make_priv_latex_table()
         #logging.info('priv-instr-table.tex generated successfully')
+=======
+        logging.info("instr-table.tex generated successfully")
+        make_priv_latex_table()
+        logging.info("priv-instr-table.tex generated successfully")
+
+
+if __name__ == "__main__":
+    main()
+>>>>>>> master
