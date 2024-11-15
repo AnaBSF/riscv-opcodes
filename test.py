@@ -5,9 +5,6 @@ import logging
 import unittest
 from unittest.mock import Mock, patch
 
-<<<<<<< HEAD
-class EncodingLineTest(unittest.TestCase):
-=======
 from shared_utils import (
     InstrDict,
     check_arg_lut,
@@ -32,7 +29,6 @@ from shared_utils import (
 class EncodingUtilsTest(unittest.TestCase):
     """Tests for basic encoding utilities"""
 
->>>>>>> master
     def setUp(self):
         self.logger = logging.getLogger()
         self.logger.disabled = True
@@ -49,36 +45,6 @@ class EncodingUtilsTest(unittest.TestCase):
         validate_bit_range(7, 3, 15, "test_instr")  # 15 fits in 5 bits
         validate_bit_range(31, 0, 0xFFFFFFFF, "test_instr")  # max 32-bit value
 
-<<<<<<< HEAD
-    def assertError(self, string):
-        self.assertRaises(SystemExit, process_enc_line, string, 'rv_i')
-
-    def test_lui(self):
-        name, data = process_enc_line('lui     rd imm20 6..2=0x0D 1=1 0=1', 'rv_i')
-        self.assertEqual(name, 'lui')
-        self.assertEqual(data['extension'], ['rv_i'])
-        self.assertEqual(data['match'], '0x37')
-        self.assertEqual(data['mask'], '0x7f')
-
-    def test_overlapping(self):
-        self.assertError('jol rd jimm20 6..2=0x00 3..0=7')
-        self.assertError('jol rd jimm20 6..2=0x00 3=1')
-        self.assertError('jol rd jimm20 6..2=0x00 10=1')
-        self.assertError('jol rd jimm20 6..2=0x00 31..10=1')
-
-    def test_invalid_order(self):
-        self.assertError('jol 2..6=0x1b')
-
-    def test_illegal_value(self):
-        self.assertError('jol rd jimm20 2..0=10')
-        self.assertError('jol rd jimm20 2..0=0xB')
-
-    def test_overlapping_field(self):
-        self.assertError('jol rd rs1 jimm20 6..2=0x1b 1..0=3')
-
-    def test_illegal_field(self):
-        self.assertError('jol rd jimm128 2..0=3')
-=======
         # Invalid cases
         with self.assertRaises(SystemExit):
             validate_bit_range(3, 7, 1, "test_instr")  # msb < lsb
@@ -290,4 +256,3 @@ class InstructionProcessingTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
->>>>>>> master

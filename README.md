@@ -233,13 +233,6 @@ DEBUG::      Processing line: bne     bimm12hi rs1 rs2 bimm12lo 14..12=1 6..2=0x
 ## How do I find where an instruction is defined?
 
 You can use `grep "^\s*<instr-name>" rv* unratified/rv*` OR run `make` and open
-<<<<<<< HEAD
-`instr_dict.yaml` and search of the instruction you are looking for. Within that
-instruction the `extension` field will indicate which file the instruction was
-picked from.
-
-=======
 `instr_dict.json` and search for the instruction you are looking for. Within
 that instruction the `extension` field will indicate which file the
 instruction was picked from.
->>>>>>> master

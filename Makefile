@@ -9,15 +9,11 @@ PSEUDO_FLAG := $(if $(PSEUDO),-pseudo,)
 
 default: everything
 
-<<<<<<< HEAD
-.PHONY : everything
-=======
 .PHONY: everything encoding.out.h inst.chisel inst.go latex inst.sverilog inst.rs clean install instr-table.tex priv-instr-table.tex inst.spinalhdl pseudo
 
 pseudo:
 	@$(MAKE) PSEUDO=1 everything
 
->>>>>>> master
 everything:
 	@./parse.py  $(PSEUDO_FLAG) -c -go -chisel -sverilog -rust -latex -spinalhdl $(EXTENSIONS)
 

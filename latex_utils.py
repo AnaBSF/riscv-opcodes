@@ -174,6 +174,34 @@ def make_latex_table():
             )
         )
         make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+        
+        ### UVE ###
+        caption = ''
+
+        type_list = ['UA-type']
+        dataset_list = [(['_uve_arith'],'Arithmetic and Logic Instructions', [], False)]
+        make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+        type_list = ['UB-type']
+        dataset_list =[(['_uve_branch'],'Loop Control Branching Instructions', [], False)]
+        make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+        type_list = ['UP-type']
+        dataset_list = [(['_uve_pred'],'Lane Control Predication Instructions', [], False)]
+        make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+        type_list = ['UV2-type']
+        dataset_list = [(['_uve_ctrl'],'Vector Control Instructions', [], False)]
+        make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+        type_list = ['UV1-type']
+        dataset_list = [(['_uve_mem'],'Vector Manipulation Instructions', [], False)]
+        make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
+
+        caption = '\\caption{Unlimited Vector Extension Instruction listing for RISC-V}'
+        type_list = ['US-type']
+        dataset_list = [(['_uve_stream'],'Stream Configuration Instructions', [], False)]
+        make_ext_latex_table(type_list, dataset_list, latex_file, 32, caption)
 
         ## The following is demo to show that Compressed instructions can also be
         # dumped in the same manner as above
