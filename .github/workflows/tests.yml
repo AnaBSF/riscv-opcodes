@@ -38,12 +38,6 @@ jobs:
 
     - name: Generate coverage report
       run: coverage xml
-<<<<<<< HEAD
-    - name: Upload coverage
-      uses: codecov/codecov-action@v2
-          
-=======
 
     - name: Upload coverage report
       uses: codecov/codecov-action@v4
->>>>>>> master
