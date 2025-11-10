@@ -7,39 +7,40 @@ INSTALL_HEADER_FILES := $(ISASIM_H) $(PK_H) $(ENV_H) $(OPENOCD_H)
 PSEUDO_FLAG := $(if $(PSEUDO),-pseudo,)
 
 
+.PHONY : default
 default: everything
 
-.PHONY: everything encoding.out.h inst.chisel inst.go latex inst.sverilog inst.rs clean install instr-table.tex priv-instr-table.tex inst.spinalhdl pseudo
+.PHONY: everything encoding.out.h inst.chisel inst.go latex inst.sverilog inst.rs clean install instr-table.tex priv-instr-table.tex inst.spinalhdl pseudo test
 
 pseudo:
 	@$(MAKE) PSEUDO=1 everything
 
 everything:
-	@./parse.py  $(PSEUDO_FLAG) -c -go -chisel -sverilog -rust -latex -spinalhdl $(EXTENSIONS)
+	@uv run riscv_opcodes $(PSEUDO_FLAG) -c -go -chisel -sverilog -rust -latex -spinalhdl $(EXTENSIONS)
 
 .PHONY : encoding.out.h
 encoding.out.h:
-	@./parse.py -c $(PSEUDO_FLAG) rv* unratified/rv_* unratified/rv32* unratified/rv64*
+	@uv run riscv_opcodes -c $(PSEUDO_FLAG) $(EXTENSIONS)
 
 .PHONY : inst.chisel
 inst.chisel:
-	@./parse.py -chisel $(PSEUDO_FLAG) $(EXTENSIONS)
+	@uv run riscv_opcodes -chisel $(PSEUDO_FLAG) $(EXTENSIONS)
 
 .PHONY : inst.go
 inst.go:
-	@./parse.py -go $(PSEUDO_FLAG) $(EXTENSIONS)
+	@uv run riscv_opcodes -go $(PSEUDO_FLAG) $(EXTENSIONS)
 
 .PHONY : latex
 latex:
-	@./parse.py -latex $(PSEUDO_FLAG) $(EXTENSIONS)
+	@uv run riscv_opcodes -latex $(PSEUDO_FLAG) $(EXTENSIONS)
 
 .PHONY : inst.sverilog
 inst.sverilog:
-	@./parse.py -sverilog $(PSEUDO_FLAG) $(EXTENSIONS)
+	@uv run riscv_opcodes -sverilog $(PSEUDO_FLAG) $(EXTENSIONS)
 
 .PHONY : inst.rs
 inst.rs:
-	@./parse.py -rust $(PSEUDO_FLAG) $(EXTENSIONS)
+	@uv run riscv_opcodes -rust $(PSEUDO_FLAG) $(EXTENSIONS)
 
 .PHONY : clean
 clean:
@@ -49,7 +50,9 @@ clean:
 install: everything
 	set -e; for FILE in $(INSTALL_HEADER_FILES); do cp -f encoding.out.h $$FILE; done
 
-.PHONY: instr-table.tex
+test:
+	@uv run -m unittest -b tests/test.py
+
 instr-table.tex: latex
 
 .PHONY: priv-instr-table.tex
@@ -57,4 +60,4 @@ priv-instr-table.tex: latex
 
 .PHONY: inst.spinalhdl
 inst.spinalhdl:
-	@./parse.py -spinalhdl $(PSEUDO_FLAG) $(EXTENSIONS)
+	@uv run riscv_opcodes -spinalhdl $(PSEUDO_FLAG) $(EXTENSIONS)

@@ -2,6 +2,8 @@ import re
 import csv
 
 
+from .resources import open_text_resource
+
 # TODO: The constants in this file should be in all caps.
 overlapping_extensions = {
     'rv_zcmt': {'rv_c_d'},
@@ -55,7 +57,7 @@ def read_int_map_csv(filename: str) -> "list[tuple[int, str]]":
     Returns:
         list of tuple: A list of (int, str) tuples extracted from the CSV file.
     """
-    with open(filename, encoding="utf-8") as f:
+    with open_text_resource(filename) as f:
         csv_reader = csv.reader(f, skipinitialspace=True)
         return [(int(row[0], 0), row[1]) for row in csv_reader]
 
@@ -69,7 +71,7 @@ def read_arg_lut_csv(filename: str) -> "dict[str, tuple[int, int]]":
     """
     Load the argument lookup table (arg_lut) from a CSV file, mapping argument names to their bit positions.
     """
-    with open(filename, encoding="utf-8") as f:
+    with open_text_resource(filename) as f:
         csv_reader = csv.reader(f, skipinitialspace=True)
         return {row[0]: (int(row[1]), int(row[2])) for row in csv_reader}
 
@@ -159,6 +161,12 @@ latex_mapping = {
     "c_uimm9sphi": "uimm[5]",
     "c_uimm10sp_s": "uimm[5:4$\\vert$9:6]",
     "c_uimm9sp_s": "uimm[5:3$\\vert$8:6]",
+    "rd_p_e": "rd\\,$'$, even values only",
+    "rs2_p_e": "rs2\\,$'$, even values only",
+    "rd_n0_e": "rd$\\neq$0, even values only",
+    "c_rs2_e": "rs2, even values only",
+    "rd_e": "rd, even values only",
+    "rs2_e": "rs2, even values only",
     ### UVE ###
     "vd": "vd",
     "vs1": "vs1",
@@ -181,6 +189,7 @@ latex_mapping = {
     "funct3b": "funct3",
     "funct2b": "funct2",
 }
+
 
 # created a dummy instruction-dictionary like dictionary for all the instruction
 # types so that the same logic can be used to create their tables

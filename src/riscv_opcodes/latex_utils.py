@@ -2,8 +2,8 @@ import logging
 import pprint
 from typing import TextIO
 
-from constants import latex_fixed_fields, latex_inst_type, latex_mapping
-from shared_utils import InstrDict, arg_lut, create_inst_dict
+from .constants import latex_fixed_fields, latex_inst_type, latex_mapping
+from .shared_utils import InstrDict, arg_lut, create_inst_dict
 
 pp = pprint.PrettyPrinter(indent=2)
 logging.basicConfig(level=logging.INFO, format="%(levelname)s:: %(message)s")
@@ -444,7 +444,7 @@ def make_ext_latex_table(
             content += f"""
 
 \\multicolumn{{{ilen}}}{{c}}{{}} & \\\\
-\\multicolumn{{{ilen}}}{{c}}{{\\bf {title} }} & \\\\
+\\multicolumn{{{ilen}}}{{c}}{{\\bfseries {title} }} & \\\\
 \\cline{{2-{ilen+1}}}
 
             &
